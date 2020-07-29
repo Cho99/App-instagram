@@ -1,0 +1,25 @@
+.Header {
+    margin: 20px;
+  }
+  
+  ul.nav {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+  
+  .MainMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .Menu {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  img.avatar {
+    border-radius: 50%;
+  }
+  
