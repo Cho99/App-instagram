@@ -2,12 +2,17 @@ import React from "react";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Redirect } from 'react-router-dom';
+import {user} from "../../constants/Config";
 
 function UserRoute() {
   var a=4;
   return (
     <Route render={props => (
-        <Redirect to="/login" />
+        user ? 
+        <div>
+          {nana()}
+        </div>
+        : <Redirect to="/login" />
     )} />
       
   )

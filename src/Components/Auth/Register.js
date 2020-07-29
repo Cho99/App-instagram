@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "../../../src/assets/Css/register.css";
-var basURL = "http://localhost:4000";
+var baseURL = "http://localhost:4000";
 
 class Register extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class Register extends Component {
     axios({
       method:"post",
       url: "register",
-      baseURL: basURL,
+      baseURL: baseURL,
       data: {
         email,
         username,

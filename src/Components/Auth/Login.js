@@ -3,6 +3,8 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 import "../../../src/assets/Css/login.css";
 
+var baseURL = "http://localhost:4000/"
+
 class Login extends Component {
   constructor() {
     super();
@@ -14,7 +16,7 @@ class Login extends Component {
     };
  
     this.handleChange = this.handleChange.bind(this);
-
+    this.login = this.login.bind(this);
   }
 
   //Lưu lại thông tin người dùng đã nhập
@@ -22,14 +24,44 @@ class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  async login(e) {
+    e.preventDefault();
+    const{ email, password } = this.state;
+    await axios({
+      method: "post",
+      url: "login",
+      baseURL: baseURL,
+      data: {
+        email,
+        password
+      }
+    })
+      .then((response) => {
+      const { token, user } = response.data;
+      console.log(response.data);
+      axios.defaults.headers.common["x-access-token"] = token;
+      localStorage.setItem("accessToken", token);
+      localStorage.setItem("user", JSON.stringify(user));
+      this.setState({ redirectToReferrer: true });
+    })
+    .catch((error) => {
+      console.log("Login error : " + error);
+    });
+  }
   render() {
-    console.log(this.state.email);
+    if (this.state.redirectToReferrer) {
+      return <Redirect to={"/"} />;
+    }
+
+    if (sessionStorage.getItem("userData")) {
+      return <Redirect to={"/"} />;
+    }
     return (
       <div className="" id="Body">
         <div className="row">
           <div className="col-lg-12 col-xl-12 col-md-12">
             <div className="bg-form">
-              <form className="login-form">
+              <form onSubmit={this.login} className="login-form">
                 <img
                   alt="Instagram"
                   className="s4Iyt logo-1"
