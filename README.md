@@ -1,2 +1,2 @@
 ﻿# App-instagram
- ###I'm using React for my-app
+ I'm using React for my-app
