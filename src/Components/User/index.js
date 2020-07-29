@@ -1,8 +1,10 @@
 import React from "react";
-
-import { BrowserRouter as Router } from "react-router-dom";
-import { Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router ,Route, Redirect } from 'react-router-dom';
 import {user} from "../../constants/Config";
+
+import Header from "../User/Header/Header";
+import Main from   "./Main";
+
 
 function UserRoute() {
   var a=4;
@@ -10,15 +12,15 @@ function UserRoute() {
     <Route render={props => (
         user ? 
         <div>
-          {nana()}
+          <Header/>
+          <Route path="/">
+           
+          </Route>
         </div>
         : <Redirect to="/login" />
     )} />
       
   )
-}
-function nana() {
-  return <h2>Na nè</h2>;
 }
 export default UserRoute;
 
