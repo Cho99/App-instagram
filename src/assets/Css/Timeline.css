@@ -1,0 +1,84 @@
+.Timeline {
+    display: flex;
+    justify-content: center;
+}
+
+.Card {
+    max-width: 616px;
+    max-height: 815px;
+    border: 1px solid #8e8e8e;
+    margin: 5px 50px;
+    margin-top: 100px;
+    margin-bottom: 60px;
+  }
+  .Header-Card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+  }
+  
+  a.More {
+    margin-right: 5px;
+  }
+  
+  img.Img {
+    max-width: 614px;
+    max-height: 614px;
+  }
+  .info img {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+  }
+  .info img {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .Menu-Bar {
+    display: flex;
+    margin: 5px;
+  }
+  
+  .Menu-Bar div {
+    margin: 5px;
+  }
+  
+  .Menu-Bar div:last-child {
+    right: 0;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .Comment-z {
+    margin: 0px 10px;
+  }
+  
+  .Like-z {
+    font-size: 15px;
+  }
+  
+  .User {
+    font-size: 14px;
+  }
+  .Time {
+    font-size: 11px;
+    color: #8e8e8e;
+  }
+  
+  .Add-Comment input {
+    width: 100%;
+    border: none;
+    padding: 10px 10px;
+    outline: none;
+  }
+  
+  .Add-Comment {
+    border-top: 1px solid #8e8e8e;
+  }
+  

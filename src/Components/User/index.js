@@ -14,7 +14,7 @@ function UserRoute() {
         <div>
           <Header/>
           <Route path="/">
-           
+            <Main/>
           </Route>
         </div>
         : <Redirect to="/login" />

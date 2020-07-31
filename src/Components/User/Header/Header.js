@@ -101,9 +101,9 @@ import {
                 <FontAwesomeIcon icon={faPlusSquare}></FontAwesomeIcon>
               </Nav.Link>
   
-              <Nav.Link href="/navu">
+              <Nav.Link href="/dog">
                 <img
-                  alt="Ảnh đại diện của na.vu.99"
+                  alt= {`Ảnh đại diện của ${userdata.username}`}
                   className="_6q-tv"
                   draggable="false"
                   src={`/image/${userdata.avatar}`}
