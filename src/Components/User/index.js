@@ -7,7 +7,6 @@ import Main from   "./Main";
 
 
 function UserRoute() {
-  var a=4;
   return (
     <Route render={props => (
         user ? 

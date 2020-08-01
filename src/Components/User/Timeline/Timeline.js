@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../../assets/Css/Timeline.css"
 import axios from "axios";
 import callApi from "../../../constants/Config";
-import { user } from "../../../utils/apiCaller";
+import { user } from "../../../constants/Config";
 
 var baseURL = "http://localhost:4000/post/";
 
@@ -15,6 +15,7 @@ export default class Timeline extends Component {
             isLike: false,
         };
         this.onLike = this.onLike.bind(this);
+        this.addHeart = this.addHeart.bind(this);
     }
     
     onLike(e) {
@@ -25,9 +26,34 @@ export default class Timeline extends Component {
       })
     }
 
+    addHeart(e) {
+      e.preventDefault();
+      var id = this.props.id;
+      const {isLike, post} = this.state;
+      this.setState({
+        isLike : !isLike
+      })
+      axios({
+        method: "post",
+        url: "heart",
+        baseURL: baseURL,
+        data: {
+          user,
+          posts: post,
+          id
+        }
+      })
+        .then(response => {
+          console.log("form submitted");
+        })
+        .catch(errror => {
+          console.log("Error: " + errror);
+        })
+    }
+
     render() {
         var { post, isLike } = this.state;
-        var { items } = this.props;
+        var { items, userNamePost, imagePost, like } = this.props;
         var  data = [items];
         var a ;
         if(isLike === true) {
@@ -63,7 +89,7 @@ export default class Timeline extends Component {
               <div className="Header-Card">
                 <div className="info">
                   <img src="https://robohash.org/quisexcepturimagni.png?size=50x50&set=set1" />
-                  <b>Name</b>
+                  <b>{userNamePost}</b>
                 </div>
                 <a src="#" className="More">
                   <svg
@@ -101,7 +127,7 @@ export default class Timeline extends Component {
               <div className="Image-z">
                 <img
                   className="img-fluid"
-                  src="https://instagram.fhan3-3.fna.fbcdn.net/v/t51.2885-15/fr/e15/s1080x1080/110248954_172997284228428_1096278992278928461_n.jpg?_nc_ht=instagram.fhan3-3.fna.fbcdn.net&_nc_cat=100&_nc_ohc=DaeJQM5unqAAX-YK9Ai&oh=72f26f33f09bc361ed6b1125591dfd56&oe=5F3BC3D1"
+                  src={imagePost}
                   className="Img"
                   width="614"
                   height="614"
@@ -110,7 +136,7 @@ export default class Timeline extends Component {
               <div className="Content">
                 <div className="Menu-z">
                   <div className="Menu-Bar">
-                    <button onClick= {this.onLike} className="Like">{a}</button>
+                    <button onClick= {this.addHeart} className="Like">{a}</button>
                     <div className="Comment">
                       <svg
                         aria-label="Comment"
@@ -155,7 +181,7 @@ export default class Timeline extends Component {
                 </div>
                 <div className="Comment-z">
                   <div className="Like-z">
-                    <b>24 Like</b>
+                    <b>{like} Like</b>
                   </div>
                   <div className="Comments">
                     <div className="User">

@@ -39,7 +39,6 @@ class Login extends Component {
     })
       .then((response) => {
       const { token, user } = response.data;
-      console.log(response.data);
       axios.defaults.headers.common["x-access-token"] = token;
       localStorage.setItem("accessToken", token);
       localStorage.setItem("user", JSON.stringify(user));
