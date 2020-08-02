@@ -25,6 +25,7 @@ class Post extends Component {
     });
   }
   handleChangeFile(e) {
+    console.log(e.target.files[0]);
     this.setState({
       imagePost: e.target.files[0],
     });

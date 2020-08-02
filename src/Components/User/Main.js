@@ -20,7 +20,7 @@ function Main() {
                         <Route path="/" exact component ={Home}>
                             <Home/>
                         </Route>
-                        <Route path="/post" exact component ={Post}></Route>
+                        <Route path="/add" exact component ={Post}></Route>
                     </Switch>
                 </Router>
             </div>
