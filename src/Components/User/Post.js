@@ -4,6 +4,7 @@ import axios from "axios";
 import "../../assets/Css/register.css";
 import { user } from "../../constants/Config";
 const shortid = require("shortid");
+var classNames = require("classnames");
 var baseURL = "http://localhost:4000/post/";
 
 class Post extends Component {
@@ -61,37 +62,41 @@ class Post extends Component {
       return <Redirect to={"/"} />;
     }
     console.log(this.state.redirectToReferre);
+    const {isAvailable} = this.props;
     if (!this.state.redirectToReferre) {
       return (
-        <div className="bg-form">
-          <form
-            onSubmit={this.handleSubmit}
-            className="register-form"
-            encType="multipart/form-data"
-          >
-            <img
-              alt="Instagram"
-              className="s4Iyt logo-1"
-              src="/image/instagram.png"
-            ></img>
-            <input
-              type="file"
-              name="imagePost"
-              placeholder="image"
-              onChange={this.handleChangeFile}
-              required
-            />
-            <input
-              type="text"
-              name="contentPost"
-              placeholder="content"
-              value={this.state.contentPost}
-              onChange={this.handleChange}
-              required
-            />
-            <button type="submit">Đăng</button>
-          </form>
+        <div className={classNames("Post", {isAvailable: isAvailable})}>
+          <div className="bg-form">
+            <form
+              onSubmit={this.handleSubmit}
+              className="register-form"
+              encType="multipart/form-data"
+            >
+              <img
+                alt="Instagram"
+                className="s4Iyt logo-1"
+                src="/image/instagram.png"
+              ></img>
+              <input
+                type="file"
+                name="imagePost"
+                placeholder="image"
+                onChange={this.handleChangeFile}
+                required
+              />
+              <input
+                type="text"
+                name="contentPost"
+                placeholder="content"
+                value={this.state.contentPost}
+                onChange={this.handleChange}
+                required
+              />
+              <button type="submit">Đăng</button>
+            </form>
+          </div>
         </div>
+        
       );
     }
   }

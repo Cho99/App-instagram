@@ -82,3 +82,17 @@
     border-top: 1px solid #8e8e8e;
   }
   
+
+  .add {
+    margin-top: 60px;  
+  }
+  
+  .Post {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .isAvailable {
+    visibility: visible;
+    opacity: 1;
+  }

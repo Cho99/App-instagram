@@ -42,6 +42,7 @@ class Login extends Component {
       axios.defaults.headers.common["x-access-token"] = token;
       localStorage.setItem("accessToken", token);
       localStorage.setItem("user", JSON.stringify(user));
+      console.log(JSON.stringify(user));
       this.setState({ redirectToReferrer: true });
     })
     .catch((error) => {

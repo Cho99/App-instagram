@@ -1,13 +1,16 @@
 import React, {Component} from "react";
 import Timeline from "./Timeline/Timeline";
 import callApi from "../../utils/apiCaller";
+import Post from "../User/Post";
 
 export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = ({
-            posts: []
+            posts: [],
+            isAvailable: false
         });
+        this.onAdd = this.onAdd.bind(this);
     }
 
     componentDidMount() {
@@ -18,10 +21,21 @@ export default class Home extends Component {
         });      
     }
 
+    onAdd(e) {
+        e.preventDefault();
+        this.setState({
+            isAvailable: true
+        })
+        console.log("Hello");
+    }
+
     render() {
-        var {posts} = this.state;
+        var {posts, isAvailable} = this.state;
         return(
             <div className="Home">
+                <div className="add">
+                    <button onClick={this.onAdd}>Addd</button>
+                </div>
                 {
                     posts.map((item, index) => {
                        var data_comments = item.comments;
@@ -49,6 +63,7 @@ export default class Home extends Component {
                        )
                     })
                 }
+                <Post isAvailable = {isAvailable}/>
             </div>
         );
     }
