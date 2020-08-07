@@ -11,6 +11,7 @@ export default class Home extends Component {
             isAvailable: false
         });
         this.onAdd = this.onAdd.bind(this);
+        this.onExit = this.onExit.bind(this);
     }
 
     componentDidMount() {
@@ -26,7 +27,12 @@ export default class Home extends Component {
         this.setState({
             isAvailable: true
         })
-        console.log("Hello");
+    }
+
+    onExit() {
+        this.setState({
+            isAvailable: false
+        })
     }
 
     render() {
@@ -63,7 +69,7 @@ export default class Home extends Component {
                        )
                     })
                 }
-                <Post isAvailable = {isAvailable}/>
+                <Post isAvailable = {isAvailable} onExit = {this.onExit}/>
             </div>
         );
     }

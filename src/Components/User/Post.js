@@ -62,11 +62,12 @@ class Post extends Component {
       return <Redirect to={"/"} />;
     }
     console.log(this.state.redirectToReferre);
-    const {isAvailable} = this.props;
+    const {isAvailable, onExit} = this.props;
     if (!this.state.redirectToReferre) {
       return (
         <div className={classNames("Post", {isAvailable: isAvailable})}>
           <div className="bg-form">
+            <div className="Exit" onClick={onExit}> X </div>
             <form
               onSubmit={this.handleSubmit}
               className="register-form"
