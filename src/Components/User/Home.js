@@ -48,13 +48,19 @@ export default class Home extends Component {
                 {
                     posts.map((item, index) => {
                        var data_comments = item.comments;
-                       
+                       var commentByUser = data_comments.map((x, index) => {
+                           return x.commentByUserId;
+                       })
 
+                       var contentComment = data_comments.map((x, index) => {
+                           return x.contentComment;
+                       });
+                       
                        var data_heart = item.hearts;
                        var heart = data_heart.map(data => {
-                            console.log(data);
                             return data.quantity;
                        });
+
                        var sum = 0;
                        for(let i = 0; i < heart.length; i++) {
                            sum += heart[i];
@@ -67,6 +73,8 @@ export default class Home extends Component {
                             userNamePost = {item.userNamePost}
                             contentPost = {item.contentPost}
                             imagePost = {item.imagePost}
+                            commentByUser = {commentByUser}
+                            contentComment = {contentComment}
                             like = {sum}
                             />
                        )
