@@ -8,7 +8,7 @@
     max-height: 815px;
     border: 1px solid #8e8e8e;
     margin: 5px 50px;
-    margin-top: 100px;
+    margin-top: 30px;
     margin-bottom: 60px;
   }
   .Header-Card {
@@ -83,8 +83,36 @@
   }
   
 
-  .add {
-    margin-top: 60px;  
+  .AddForm {
+    margin-top: 80px;  
+  }
+
+  img.form__avatar {
+    max-width: 32px;
+    max-height: 32px;
+    border: 1px solid #ffff;
+    padding: 2px;
+    border-radius: 50%;
+  }
+
+  .form__add {
+    max-width: 616px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #e9ebee;
+    padding: 25px 10px;
+  }
+
+  .form__content__add {
+    display: flex;
+  }
+
+  input.form__input {
+    padding: 3px;
+    margin-left: 8px;
+    border: none!important;
+    outline: none;
+    width: 100%;
   }
   
   .Post {
@@ -107,9 +135,9 @@
   }
 
   .Post.isAvailable {
-  background: azure;
+    background: azure;
+    z-index: 4;
   }
-
   .bg-form {
     margin-top: 15%;
     z-index: 100;

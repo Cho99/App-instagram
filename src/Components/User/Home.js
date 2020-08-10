@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import Timeline from "./Timeline/Timeline";
 import callApi from "../../utils/apiCaller";
 import Post from "../User/Post";
+import Add from "./AddForm";
+import AddForm from "./AddForm";
+
 
 export default class Home extends Component {
     constructor(props) {
@@ -37,11 +40,11 @@ export default class Home extends Component {
 
     render() {
         var {posts, isAvailable} = this.state;
+        const user = localStorage.getItem("user");
+        const userdata = JSON.parse(user);
         return(
             <div className="Home">
-                <div className="add">
-                    <button onClick={this.onAdd}>Addd</button>
-                </div>
+                <AddForm name = {userdata.username} avatar = {userdata.avatar} onAdd = {this.onAdd}/>
                 {
                     posts.map((item, index) => {
                        var data_comments = item.comments;
